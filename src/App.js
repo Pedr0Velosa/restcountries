@@ -4,6 +4,7 @@ import './index.scss';
 import Home from './pages/Home';
 import Details from './pages/Details';
 import Header from './components/Header';
+import NotFound from './pages/NotFound';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -28,9 +29,10 @@ function App() {
       <BrowserRouter>
         <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Routes>
-          <Route path='/' element={<Navigate to='/home' replace />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Navigate to='/restcountries' replace />} />
+          <Route path='/restcountries' element={<Home />} />
           <Route path='/details/:name/:ccn3' element={<Details />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter >
     </main>

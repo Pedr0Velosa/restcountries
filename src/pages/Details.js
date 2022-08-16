@@ -23,7 +23,7 @@ function Details() {
     <section className='mt-8 md:mt-16 mx-4 grid gap-4 grid-rows-2-auto
      max-w-screen-lg xl:mx-auto	
      '>
-      <Link to={'/home'}
+      <Link to={'/restcountries'}
         className='rounded-md shadow shadow-gray-300 dark:shadow-darkblue-500 overflow-hidden px-4 py-1 inline-block max-w-fit col-span-full	'>
         <FontAwesomeIcon icon={fasFaArrowLeftLong} className='mr-2.5' />
         <span>Back</span>

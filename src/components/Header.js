@@ -13,7 +13,7 @@ const Header = ({isDarkMode, setIsDarkMode}) => {
       lg:py-6 
       dark:shadow-darkblue-500 dark:bg-darkblue-300'>
       <nav className='flex justify-between max-w-screen-2xl 2xl:mx-auto xl:mx-16'>
-        <Link to='/home'
+        <Link to='/restcountries'
           className='text-xl	lg:text-3xl font-semibold hover:underline'>
           Where in the world?
         </Link>
