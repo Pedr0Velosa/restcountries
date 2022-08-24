@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './index.scss';
 import Home from './pages/Home';
 import Details from './pages/Details';
@@ -29,7 +29,6 @@ function App() {
       <BrowserRouter>
         <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Routes>
-          <Route path='/' element={<Navigate to='/restcountries' replace />} />
           <Route path='/restcountries' element={<Home />} />
           <Route path='/details/:name/:ccn3' element={<Details />} />
           <Route path='*' element={<NotFound />} />

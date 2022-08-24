@@ -1,27 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import Country from '../components/Country';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeftLong as fasFaArrowLeftLong} from '@fortawesome/free-solid-svg-icons';
+import {useFetchedData} from '../hooks/useFetchedData';
+
 
 function Details() {
-  const {name, ccn3} = useParams();
-  //param do nome para fazer request na api
-  const [country, setCountry] = useState([]);
+  const {ccn3} = useParams();
+  const [country] = useFetchedData(`${process.env.REACT_APP_CCN3_URL}${ccn3}`);
 
-  useEffect(() => {
-    const requestCountry = async () => {
-      const res = await fetch(`
-      https://restcountries.com/v3.1/alpha/${ccn3}
-    `);
-      const json = await res.json();
-      setCountry(json);
-    };
-    requestCountry();
-  }, [name, ccn3]);
   return (
     <section className='mt-8 md:mt-16 mx-4 grid gap-4 grid-rows-2-auto
-     max-w-screen-lg xl:mx-auto	
+     max-w-screen-xl xl:mx-auto	
      '>
       <Link to={'/restcountries'}
         className='rounded-md shadow shadow-gray-300 dark:shadow-darkblue-500 overflow-hidden px-4 py-1 inline-block max-w-fit col-span-full	'>

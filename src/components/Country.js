@@ -11,16 +11,16 @@ const Country = ({country, getBorders, getDetails}) => {
           <img src={country.flags.svg} alt='country flag' className='dark:shadow-darkblue-500' />
         </div>
         <div className='p-2 text-base grid gap-4 lg:grid-cols-2'>
-          <h3 className='text-xl font-bold md:text-2xl col-span-full md:mt-4'>{country.name.common}</h3>
-          <div>
+          <h3 className='text-4xl font-bold col-span-full md:mt-4'>{country.name.common}</h3>
+          <div className='text-xl'>
             <CountryDefault country={country} />
           </div>
-          <div>
+          <div className='text-xl'>
             {!getDetails ? null : (
               <CountryDetails country={country} getBorders={getBorders} />
             )}
           </div>
-          <div className='col-span-full	'>
+          <div className='col-span-full	text-xl'>
             {!getBorders ? null : !country.borders ? (
               <h3 className="text-lg font-bold mb-4">No border countries</h3>) : (
               <>
