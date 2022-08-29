@@ -4,7 +4,7 @@ import Country from '../components/Country';
 import Search from '../components/Search';
 import {useFetchedData} from '../hooks/useFetchedData';
 
-function Home() {
+function Home () {
   const [countries, setCountries] = useFetchedData(process.env.REACT_APP_ALL_URL);
   const [filterRegion, setFilterRegion] = useState('');
   const [filterCountry, setFilterCountry] = useState('');
@@ -17,13 +17,17 @@ function Home() {
     )));
   };
 
-  const filterDataByName = () => {
-    return countries.filter(country => (
+  const filterDataByName = (filteredRegion) => {
+    return filteredRegion.filter(country => (
       country.name.official
         .toLowerCase().includes(filterCountry.toLocaleLowerCase()) ||
       country.name.common
         .toLowerCase().includes(filterCountry.toLocaleLowerCase())
     ));
+  };
+
+  const filterData = () => {
+    return filterDataByName(filterDataByRegion());
   };
 
   return (
@@ -36,7 +40,7 @@ function Home() {
       />
       <section className='sm:grid sm:grid-cols-12-autofit-350 gap-x-4 gap-y-8	items-stretch md:gap-10'>
         {!countries ? null :
-          (filterDataByRegion() && filterDataByName())
+          (filterData())
             .map(filteredCountry => (
               <Link
                 key={filteredCountry.name.official}
